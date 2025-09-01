@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cocinaColombiana>
+    <region nombre="Andina">
+        <plato>
+            <nombre>Ajiaco</nombre>
+            <imagen>ajiaco.jpg</imagen>
+        </plato>
+        <plato>
+            <nombre>Bandeja Paisa</nombre>
+            <imagen>bandeja-paisa-1616.gif</imagen>
+        </plato>
+        <plato>
+            <nombre>Lechona Tolimense</nombre>
+            <imagen>lechona.webp</imagen>
+        </plato>
+        <plato>
+            <nombre>Cocido Bochacense</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+        <plato>
+            <nombre>Cocido Bochacense</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+        
+         </region>
+
+    <region nombre="Caribe">
+        <plato>
+            <nombre>Arepa de Huevo</nombre>
+            <imagen>arepadehuevo.webp</imagen>
+        </plato>
+        <plato>
+            <nombre>Mote de Queso</nombre>
+            <imagen>motedequeso.jfif</imagen>
+        </plato>
+        <plato>
+            <nombre>Cocido Bochacense</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+        <plato>
+            <nombre>Cocido Bochacense</nombre>
+            <imagen>cocido.jfif</imagen>
+            </plato>
+        <plato>
+            <nombre>Cocido Bochacense</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+    </region>
+
+    <region nombre="Orinoquia">
+        <plato>
+            <nombre>Mamona</nombre>
+            <imagen>arepadehuevo.webp</imagen>
+        </plato>
+        <plato>
+            <nombre>Pisilo de carne</nombre>
+            <imagen>motedequeso.jfif</imagen>
+        </plato>
+        <plato>
+            <nombre>Hallacas</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+        <plato>
+            <nombre>Cachama</nombre>
+            <imagen>cocido.jfif</imagen>
+            </plato>
+        <plato>
+            <nombre>Tungos llaneros</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+    </region>
+    
+    <region nombre="Amazonica">
+        <plato>
+            <nombre>Pescado Moqueado</nombre>
+            <imagen>arepadehuevo.webp</imagen>
+        </plato>
+
+        <plato>
+            <nombre>Caldo de Picuro</nombre>
+            <imagen>motedequeso.jfif</imagen>
+        </plato>
+
+        <plato>
+            <nombre>Bagre en Salsa</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+
+        <plato>
+            <nombre>Casabe con fariña y pescado</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+
+        <plato>
+            <nombre>Sancocho de gallina con yuca y plátano</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+
+    </region>
+
+    <region nombre="Pacifica">
+        <plato>
+            <nombre>Encocado de camarón o pescado</nombre>
+            <imagen>arepadehuevo.webp</imagen>
+        </plato>
+
+        <plato>
+            <nombre>Sancocho de gallina criolla</nombre>
+            <imagen>motedequeso.jfif</imagen>
+        </plato>
+
+        <plato>
+            <nombre>Arroz atollado</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+        
+        <plato>
+            <nombre>Tapao de pescado</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>    
+
+        <plato>
+            <nombre>Cazuela de mariscos</nombre>
+            <imagen>cocido.jfif</imagen>
+        </plato>
+
+    </region>
+    
+</cocinaColombiana>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruta Gastronómica Colombiana</title>
+  <style>
+    /* Estilos generales */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    body {
+      background-color: #FFF8F0;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    /* Encabezado */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .banner {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #BF360C;
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+    
+    .intro {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      color: #555;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Regiones */
+    .region {
+      background-color: white;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    
+    .region:hover {
+      transform: translateY(-5px);
+    }
+    
+    .region-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 15px;
+      background: linear-gradient(135deg, #FF5722, #BF360C);
+      color: white;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    
+    .region-title {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    .region-content {
+      padding: 15px;
+      display: none;
+    }
+    
+    .region-info {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+    
+    .region-text {
+      flex: 1;
+      min-width: 300px;
+      padding: 15px;
+      font-size: 1.1rem;
+    }
+    
+    .region-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+    }
+    
+    .region-image img {
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    /* Platos */
+    .dishes-container {
+      margin-top: 20px;
+    }
+    
+    .dish {
+      margin-bottom: 20px;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .dish-header {
+      background-color: #FF9800;
+      color: white;
+      padding: 12px 15px;
+      cursor: pointer;
+      font-size: 1.3rem;
+    }
+    
+    .dish-content {
+      padding: 15px;
+      display: none;
+    }
+    
+    .dish-info {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .dish-image {
+      flex: 1;
+      min-width: 300px;
+      text-align: center;
+      padding: 10px;
+    }
+    
+    .dish-image img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    
+    .dish-description {
+      flex: 2;
+      min-width: 300px;
+      padding: 15px;
+      font-size: 1.1rem;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      border-radius: 8px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .region-info, .dish-info {
+        flex-direction: column;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .region-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="banner_ruta_gastronomica.png" alt="Ruta Gastronómica Colombiana" class="banner">
+      <h1>Ruta Gastronómica Colombiana</h1>
+      <p class="intro">¡Ven y conoce los platos típicos de cada región Colombiana! Descubre la diversidad de sabores que ofrece nuestro país a través de esta experiencia culinaria.</p>
+    </header>
+
+    <!-- Región Andina -->
+    <div class="region">
+      <div class="region-header" onclick="toggleRegion('andina')">
+        <h2 class="region-title">Región Andina</h2>
+        <span>▼</span>
+      </div>
+      <div id="andina" class="region-content">
+        <div class="region-info">
+          <div class="region-text">
+            <p>Ubicada en el corazón del país, está formada por las tres cordilleras de los Andes. Es la región más poblada y variada en clima y cultura. Aquí se encuentran ciudades principales como Bogotá, Medellín y Bucaramanga.</p>
+          </div>
+          <div class="region-image">
+            <img src="region_andina.png" alt="Región Andina">
+          </div>
+        </div>
+        
+        <div class="dishes-container">
+          <!-- Bandeja Paisa -->
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('bandeja-paisa')">Bandeja Paisa</div>
+            <div id="bandeja-paisa" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="bandeja-paisa-1616.gif" alt="Bandeja Paisa">
+                </div>
+                <div class="dish-description">
+                  <p>La bandeja paisa es un plato tradicional de Antioquia. En la bandeja podrás encontrar ingredientes como: arroz, frijoles, carne molida, chicharrón, chorizo, huevo frito, plátano maduro, arepa y aguacate. Además es una comida muy completa y representativa de la región.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Ajiaco Santafereño -->
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('ajiaco')">Ajiaco Santafereño</div>
+            <div id="ajiaco" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="ajiaco.jpg" alt="Ajiaco Santafereño">
+                </div>
+                <div class="dish-description">
+                  <p>El ajiaco es un plato típico santafereño. Se compone de: sopa espesa de papas con pollo, mazorca y guascas, típica de Bogotá. Se acompaña con arroz, aguacate, alcaparras y crema de leche.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Lechona Tolimense -->
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('lechona')">Lechona Tolimense</div>
+            <div id="lechona" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="lechona.webp" alt="Lechona Tolimense">
+                </div>
+                <div class="dish-description">
+                  <p>Cerdo relleno de arroz, arvejas y especias, horneado lentamente. Se sirve con arepa blanca y cuero crocante.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Cocido Boyacense -->
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('cocido')">Cocido Boyacense</div>
+            <div id="cocido" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="cocido.jfif" alt="Cocido Boyacense">
+                </div>
+                <div class="dish-description">
+                  <p>Guiso tradicional con carnes, papa, yuca, mazorca y verduras. Representa la cocina campesina boyacense.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Mute Santandereano -->
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('mute')">Mute Santandereano</div>
+            <div id="mute" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="mute-santandereano-1591.gif" alt="Mute Santandereano">
+                </div>
+                <div class="dish-description">
+                  <p>Sopa espesa con maíz, carne, papa, garbanzos y a veces vísceras. Muy nutritiva y característica de Santander.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <!-- Región Orinoquía -->
+    <div class="region">
+      <div class="region-header" onclick="toggleRegion('orinoquia')">
+        <h2 class="region-title">Región Orinoquía</h2>
+        <span>▼</span>
+      </div>
+      <div id="orinoquia" class="region-content">
+      <div class="region-info">
+          <div class="region-text">
+            <p>Está ubicada en el oriente del país, en una extensa llanura.
+Tiene un clima cálido y sabanas que se extienden hasta Venezuela.
+La vida llanera gira en torno a la ganadería, la música y los caballos.
+Sus platos típicos incluyen carnes asadas como la mamona.</p>
+          </div>
+          <div class="region-image">
+            <img src="regionorinoquia.png" alt="Región orinoquia">
+          </div>
+        </div>
+        
+        <div class="dishes-container">
+
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('mamona')">Mamona</div>
+            <div id="Mamona" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="mamona.jpg" alt="Mamona">
+                </div>
+                <div class="dish-description">
+                  <p>Carne de ternera asada al carbón sobre estacas, sazonada solo con sal0.
+Emblema de los Llanos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('Pisillo de carne')">Pisillo de carne seca o Chiguiro</div>
+            <div id="Pisillo" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="pisillo.jpg" alt="Pisillo de carne seca o chiguiro">
+                </div>
+                <div class="dish-description">
+                  <p>Carne desmechada y salada, preparada con cebolla y ají.
+Acompañada con yuca y plátano.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+     
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('lechona')">Lechona Tolimense</div>
+            <div id="lechona" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="lechona.webp" alt="Lechona Tolimense">
+                </div>
+                <div class="dish-description">
+                  <p>Cerdo relleno de arroz, arvejas y especias, horneado lentamente. Se sirve con arepa blanca y cuero crocante.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('cocido')">Cocido Boyacense</div>
+            <div id="cocido" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="cocido.jfif" alt="Cocido Boyacense">
+                </div>
+                <div class="dish-description">
+                  <p>Guiso tradicional con carnes, papa, yuca, mazorca y verduras. Representa la cocina campesina boyacense.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="dish">
+            <div class="dish-header" onclick="toggleDish('mute')">Mute Santandereano</div>
+            <div id="mute" class="dish-content">
+              <div class="dish-info">
+                <div class="dish-image">
+                  <img src="mute-santandereano-1591.gif" alt="Mute Santandereano">
+                </div>
+                <div class="dish-description">
+                  <p>Sopa espesa con maíz, carne, papa, garbanzos y a veces vísceras. Muy nutritiva y característica de Santander.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    
+    <!-- Región Amazónica -->
+    <div class="region">
+      <div class="region-header" onclick="toggleRegion('amazonica')">
+        <h2 class="region-title">Región Amazónica</h2>
+        <span>▼</span>
+      </div>
+      <div id="amazonica" class="region-content">
+        <div class="region-info">
+          <div class="region-text">
+            <p>Se localiza al sur del país y está cubierta por la selva del Amazonas.
+Es una región con gran diversidad ecológica y cultural.
+Habitada por pueblos indígenas que conservan tradiciones ancestrales.
+Su gastronomía incluye ingredientes exóticos como el pescado de río y frutas selváticas.</p>
+          </div>
+      <div class="region-image">
+        <img src="region-amazonica.jpg" alt="Región Amazónica">
+      </div>
+    </div>
+
+    <div class="dishes-container">
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('moqueado')">Pescado Moqueado</div>
+        <div id="moqueado" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="pescadonoqueado.png" alt="Pescado Moqueado"></div>
+            <div class="dish-description"><p>Pescado de río cocinado lentamente y ahumado con hojas. Sabor ancestral y profundo.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Caldo de Picuro -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('picuro')">Caldo de Picuro</div>
+        <div id="picuro" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="caldo-de-pichon-pepeguedes-7819-1-750x501.webp" alt="Caldo de Picuro"></div>
+            <div class="dish-description"><p>Sopa elaborada con carne de picuro, un roedor silvestre. Plato típico de las comunidades amazónicas.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bagre en Salsa -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('bagre')">Bagre en Salsa</div>
+        <div id="bagre" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="bagre_en_salsa.jfif" alt="Bagre en Salsa"></div>
+            <div class="dish-description"><p>Pescado de río preparado en salsa de tomate, cebolla y especias. Acompañado de arroz y yuca.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Casabe -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('casabe')">Casabe con fariña y pescado</div>
+        <div id="casabe" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="pescadocasabe-0756de.jpg" alt="Casabe"></div>
+            <div class="dish-description"><p>Pan crujiente de yuca acompañado de fariña (harina de yuca tostada) y pescado cocido o frito.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sancocho -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('sancocho-amazonia')">Sancocho de gallina con yuca y plátano</div>
+        <div id="sancocho-amazonia" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="sancocho2.jpg" alt="Sancocho Amazónico"></div>
+            <div class="dish-description"><p>Versión amazónica del sancocho, con ingredientes locales y cocinado con leña.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+          
+    <!-- Región Pacífica -->
+    <div class="region">
+      <div class="region-header" onclick="toggleRegion('pacifica')">
+        <h2 class="region-title">Región Pacífica</h2>
+        <span>▼</span>
+      </div>
+      <div id="pacifica" class="region-content">
+       <div class="region-info">
+          <div class="region-text">
+            <p>Se encuentra en el occidente de Colombia, bañada por el océano Pacífico.
+Tiene una biodiversidad impresionante y una fuerte herencia africana.
+Es una región lluviosa y rica en cultura musical como el marimba y el currulao.
+Su gastronomía incluye muchos platos con pescado, coco y mariscos.
+</p>
+          </div>
+          <div class="region-image">
+            <img src="regioonpacifica.webp" alt="Región Pacífica">
+          </div>
+        </div>
+        
+        <div class="dishes-container">
+          <div class="dish">
+        <div class="dish-header" onclick="toggleDish('encocado')">Encocado de camarón o pescado</div>
+        <div id="encocado" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="encocado_de_camaron.jpg" alt="Encocado"></div>
+            <div class="dish-description"><p>Pescado o mariscos en salsa de coco con cebolla, pimientos y achiote.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sancocho Criollo -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('sancocho-pacifica')">Sancocho de gallina criolla</div>
+        <div id="sancocho-pacifica" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="sancocho_criollo.gif" alt="Sancocho Pacífico"></div>
+            <div class="dish-description"><p>Sopa con gallina de campo, yuca, plátano, papa y mazorca. Ideal para compartir en familia.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arroz Atollado -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('arroz-atollado')">Arroz Atollado</div>
+        <div id="arroz-atollado" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="arroz_atollado.webp" alt="Arroz Atollado"></div>
+            <div class="dish-description"><p>Arroz cremoso con carne de cerdo, pollo y papas. Típico del Valle del Cauca.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tapao -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('tapao')">Tapao de pescado</div>
+        <div id="tapao" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="tapao.jpg" alt="Tapao"></div>
+            <div class="dish-description"><p>Guiso de pescado con plátano, yuca y coco. Se cocina envuelto en hojas de plátano.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cazuela -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('cazuela')">Cazuela de mariscos</div>
+        <div id="cazuela" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="cazuela.jpg" alt="Cazuela de Mariscos"></div>
+            <div class="dish-description"><p>Guiso cremoso con camarones, calamares, mejillones y pescado en leche de coco y especias.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Región Caribe -->
+    <div class="region">
+      <div class="region-header" onclick="toggleRegion('caribe')">
+        <h2 class="region-title">Región Caribe</h2>
+        <span>▼</span>
+      </div>
+      <div id="caribe" class="region-content">
+       <div class="region-info">
+          <div class="region-text">
+            <p>Ubicada en el corazón del país, está formada por las tres cordilleras de los Andes. Es la región más poblada y variada en clima y cultura. Aquí se encuentran ciudades principales como Bogotá, Medellín y Bucaramanga.</p>
+          </div>
+          <div class="region-image">
+            <img src="regioncaribe.webp" alt="Región Caribe">
+          </div>
+        </div>
+        
+        <div class="dishes-container">
+           <div class="dish">
+        <div class="dish-header" onclick="toggleDish('arepa-huevo')">Arepa de Huevo</div>
+        <div id="arepa-huevo" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="arepadehuevo.webp" alt="Arepa de Huevo"></div>
+            <div class="dish-description"><p>Arepa frita rellena con un huevo entero. Crujiente por fuera y suave por dentro.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mote de Queso -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('mote')">Mote de Queso</div>
+        <div id="mote" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="motedequeso.jfif" alt="Mote de Queso"></div>
+            <div class="dish-description"><p>Sopa espesa a base de ñame, queso costeño y suero. Cremosa y salada.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arroz con Coco -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('arroz-coco')">Arroz con Coco y Pescado Frito</div>
+        <div id="arroz-coco" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="arroz_con_coco.webp" alt="Arroz con Coco"></div>
+            <div class="dish-description"><p>Arroz cocinado en leche de coco, acompañado con pescado frito y patacones.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Butifarra -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('butifarra')">Butifarra Soledeña</div>
+        <div id="butifarra" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="butifarra.webp" alt="Butifarra"></div>
+            <div class="dish-description"><p>Salchicha pequeña y condimentada, servida con yuca y limón. Tradicional de Soledad, Atlántico.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Friche -->
+      <div class="dish">
+        <div class="dish-header" onclick="toggleDish('friche')">Friche</div>
+        <div id="friche" class="dish-content">
+          <div class="dish-info">
+            <div class="dish-image"><img src="friche.jfif" alt="Friche"></div>
+            <div class="dish-description"><p>Carne de chivo frita con su propia grasa y especias. Plato tradicional wayuu en La Guajira.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <script>
+    function toggleRegion(regionId) {
+      const regionContent = document.getElementById(regionId);
+      const isVisible = regionContent.style.display === 'block';
+      
+      // Cerrar todas las regiones primero
+      document.querySelectorAll('.region-content').forEach(content => {
+        content.style.display = 'none';
+      });
+      
+      // Si la región clickeada no estaba visible, mostrarla
+      if (!isVisible) {
+        regionContent.style.display = 'block';
+      }
+    }
+    
+    function toggleDish(dishId) {
+      const dishContent = document.getElementById(dishId);
+      const isVisible = dishContent.style.display === 'block';
+      
+      // Alternar la visibilidad del plato
+      dishContent.style.display = isVisible ? 'none' : 'block';
+    }
+    
+    // Abrir la primera región por defecto
+    document.addEventListener('DOMContentLoaded', function() {
+      toggleRegion('andina');
+    });
+  </script>
+</body>
+</html>
